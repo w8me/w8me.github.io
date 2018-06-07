@@ -1,0 +1,70 @@
+<html>
+<head>
+<script type="text/javascript" > </script>
+
+<script>
+
+    $(function() {
+
+
+   var people = [];
+
+   $.getJSON('people.json', function(data) {
+       $.each(data.person, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" +
+           "<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+  <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>City</th>
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+
+</body>
+</html>
+
+people.json
+
+{
+   "person": [
+       {
+           "firstName": "Clark",
+           "lastName": "Kent",
+           "job": "Reporter",
+           "roll": 20
+       },
+       {
+           "firstName": "Bruce",
+           "lastName": "Wayne",
+           "job": "Playboy",
+           "roll": 30
+       },
+       {
+           "firstName": "Peter",
+           "lastName": "Parker",
+           "job": "Photographer",
+           "roll": 40
+       }
+   ]
+}
